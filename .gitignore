@@ -3,9 +3,8 @@ __pycache__/
 .env
 .venv/
 .env
-persisted_docs/
 uploads/
 vectors/
-vectorstores/
+
 
 # Ignore Python cache files
