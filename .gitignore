@@ -6,3 +6,6 @@ __pycache__/
 persisted_docs/
 uploads/
 vectors/
+vectorstores/
+
+# Ignore Python cache files
