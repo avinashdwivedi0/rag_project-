@@ -2,8 +2,7 @@ __pycache__/
 *.pyc
 .env
 .venv/
-.env/
-*.sqlite3
-.DS_Store
+.env
+persisted_docs/
 uploads/
 vectors/
