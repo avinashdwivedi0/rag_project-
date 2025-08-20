@@ -55,15 +55,6 @@ Open your browser at http://localhost:8501 to use the app.
 Basic Usage Example
 Upload your .txt or .pdf files via the UI, then ask questions about their content in the chat box:
 
-python
-Copy code
-query = "What is the main point in the uploaded document?"
-result = qa_chain({"question": query})
-print("Answer:", result["answer"])
-
-# Optional: Access source documents
-for i, doc in enumerate(result["source_documents"]):
-    print(f"Source {i+1}: {doc.page_content[:500]}...")
 Project Structure
 bash
 Copy code
