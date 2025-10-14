@@ -2,6 +2,7 @@
 
 import os
 import logging
+import streamlit as st   # ✅ Added this line
 from dotenv import load_dotenv
 from langchain.chains import ConversationalRetrievalChain
 from langchain_groq import ChatGroq
@@ -13,23 +14,29 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
+# ✅ Safely load the API key (works for both local + Streamlit Cloud)
 GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
 
 def create_chat_chain(vectorstore, memory):
     try:
         if not GROQ_API_KEY:
-            raise ValueError("GROQ_API_KEY not found in environment variables.")
+            raise ValueError("❌ GROQ_API_KEY not found in environment variables or Streamlit secrets.")
 
         llm = ChatGroq(
             model_name="llama-3.1-8b-instant",
             temperature=0,
-            api_key=GROQ_API_KEY  # Pass API key here
+            api_key=GROQ_API_KEY  # ✅ Correct argument name for ChatGroq
         )
+
         qa_chain = ConversationalRetrievalChain.from_llm(
-            llm, retriever=vectorstore.as_retriever(), memory=memory
+            llm,
+            retriever=vectorstore.as_retriever(),
+            memory=memory
         )
-        logger.info("Chat chain successfully created.")
+
+        logger.info("✅ Chat chain successfully created.")
         return qa_chain
+
     except Exception as e:
-        logger.error(f"Failed to create chat chain: {e}")
+        logger.error(f"❌ Failed to create chat chain: {e}")
         raise
