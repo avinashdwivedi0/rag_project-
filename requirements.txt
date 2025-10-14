@@ -1,0 +1,27 @@
+# --- Core App Framework ---
+streamlit
+python-dotenv
+
+# --- LangChain Ecosystem ---
+langchain
+langchain-community
+langchain-core
+langchain-groq
+
+# --- Embeddings & Vectorstores ---
+faiss-cpu
+sentence-transformers
+tiktoken
+
+# --- File Parsing & Loaders ---
+pypdf
+unstructured
+unstructured[all-docs]
+docx2txt
+python-docx
+pandas
+numpy
+
+# --- Other Utilities ---
+groq
+requests
