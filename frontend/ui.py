@@ -24,7 +24,7 @@ def run_app():
         accept_multiple_files=True,
     )
 
-    # Document management section
+    # Document management section 
     st.subheader("Manage Documents")
     if st.button("Clear Uploaded Documents and Indexes"):
         st.info("Clearing uploaded documents and indexes...")
