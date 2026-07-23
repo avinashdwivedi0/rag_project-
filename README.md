@@ -5,7 +5,7 @@ create folders persisted_docs and vectorstores
 
 A Streamlit-based Retrieval-Augmented Generation (RAG) assistant that lets you upload documents once and query them persistently with conversational memory. Powered by LangChain, Groq LLM, and FAISS vector store.
 
----
+--- 
 
 ## Features
 
