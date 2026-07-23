@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # ✅ Safely load the API key (works for both local + Streamlit Cloud)
 GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", os.getenv("GROQ_API_KEY"))
 
-def create_chat_chain(vectorstore, memory):
+def create_chat_chain(vectorstore, memory): 
     try:
         if not GROQ_API_KEY:
             raise ValueError("❌ GROQ_API_KEY not found in environment variables or Streamlit secrets.")
